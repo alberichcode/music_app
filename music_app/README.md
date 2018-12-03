@@ -1,1 +1,1 @@
-Ahora haremos un repositorio compartido
+Ahora haremos un repositorio compartido.
