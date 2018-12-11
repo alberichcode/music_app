@@ -1,26 +1,61 @@
-<h2>Sign up</h2>
+<h1>Sign up</h1>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+<div class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= f.error_notification %>
+            <div class="field">
+              <%= f.label :name%>
+              <%= f.text_field :name, required: true, autofocus: true, placeholder: "Name",
+                    class: "control"  %>
+            </div>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :email,
-                required: true,
-                autofocus: true ,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+
+            <div class="field ">
+              <%= f.label :email%>
+              <%= f.email_field :email,
+                          required: true,
+                          autofocus: true ,placeholder: "Email",
+                          class: "control has-icons-left has-icons-right"%>
+              <span class="icon is-small is-left">
+                <i class="fas fa-envelope"></i>
+              </span>
+              <span class="icon is-small is-right">
+                <i class="fas fa-check"></i>
+              </span>
+            </div>
+
+            <div class="field ">
+              <%= f.label :password%>
+              <%= f.password_field :password,
+                          required: true,placeholder: "Password",
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          class: "control has-icons-left" %>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+            <div class="field ">
+              <%= f.label :password_confirmation%>
+              <%= f.password_field :password_confirmation,
+                          required: true, placeholder: "Repeat password ",
+                           class: "control has-icons-left"%>
+              <span class="icon is-small is-left">
+                <i class="fas fa-lock"></i>
+              </span>
+            </div>
+
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+</div>
+
+
 
 <%= render "devise/shared/links" %>
